@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista peliculas</title>
+</head>
+<body>
+    <a th:href="@{/addPelicula(nombreUsuario=${nombreUsuario})}"></a>
+    <table border="1">
+        <tr>
+            <th>NOMBRE</th>
+            <th>DURACION</th>
+            <th>ACTUALIZAR</th>
+            <th>ELIMINAR</th>
+        </tr>
+        <tr th:each="pelicula : ${peliculas}">
+            <td th:text="${pelicula.nombre}"></td>
+            <td th:text="${pelicula.duracion}"></td>
+            <td>
+                <form th:action="@{/actualizarPelicula}" method="post">
+                    <input type="hidden" name="nombreAnterior" th:value="${pelicula.nombre}">
+                    <input type="hidden" name="nombreUsuario" th:value="${nombreUsuario}">
+
+                    <input type="text" name="nombre" placeholder="Nuevo nombre" required>
+                    <input type="number" name="duracion" placeholder="Nueva duración" required>
+
+                    <button type="submit">Actualizar</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/eliminarPelicula}" method="post">
+                    <input type="hidden" name="nombre" th:value="${pelicula.nombre}">
+                    <input type="hidden" name="nombreUsuario" th:value="${nombreUsuario}">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

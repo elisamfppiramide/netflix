@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir pelicula</title>
+</head>
+<body>
+    <h2>Añadir Película</h2>
+
+    <form th:action="@{/addPelicula}" th:object="${pelicula}" method="post">
+        <input type="hidden" name="nombreUsuario" th:value="${nombreUsuario}">
+
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}" required>
+        <label>Duración:</label>
+        <input type="number" th:field="*{duracion}" required>
+        <button type="submit">Añadir</button>
+    </form>
+    <br>
+    <a th:href="@{/listaPeliculas(nombreUsuario=${nombreUsuario})}">Volver a mis películas</a>
+</body>
+</html>

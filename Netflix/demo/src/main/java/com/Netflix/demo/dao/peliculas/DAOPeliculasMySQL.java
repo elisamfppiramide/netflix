@@ -33,7 +33,7 @@ public class DAOPeliculasMySQL implements DAOPeliculas{
 
     @Override
     public void addPelicula(Usuario usuario, Pelicula pelicula) {
-        String query = "insert into peliculas values (?, ?, ?)";
+        String query = "insert into pelicula values (?, ?, ?)";
         try{
             PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
             ps.setString(1, pelicula.getNombre());
@@ -62,7 +62,7 @@ public class DAOPeliculasMySQL implements DAOPeliculas{
 
     @Override
     public void eliminarPelicula(Usuario usuario, Pelicula pelicula) {
-        String query = "delete from peliculas where nombre = ? and usuario = ?";
+        String query = "delete from pelicula where nombre = ? and usuario = ?";
         try{
             PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
             ps.setString(1, pelicula.getNombre());

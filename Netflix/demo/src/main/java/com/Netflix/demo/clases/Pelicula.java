@@ -9,6 +9,7 @@ public class Pelicula {
         this.nombre = nombre;
         this.duracion = duracion;
     }
+    public Pelicula(){}
 
     public String getNombre() {
         return nombre;
