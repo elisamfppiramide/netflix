@@ -8,7 +8,6 @@
     <form th:action="@{/guardarUsuario}" th:object="${usuario}" method="post">
         <label> Nombre de usuario</label>
         <input type="text" th:field="*{nombreUsuario}" required>
-
         <button type="submit">Guardar</button>
     </form>
 </body>

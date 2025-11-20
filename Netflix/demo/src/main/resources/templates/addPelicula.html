@@ -7,7 +7,7 @@
 <body>
     <h2>Añadir Película</h2>
 
-    <form th:action="@{/addPelicula}" th:object="${pelicula}" method="post">
+    <form th:action="@{/guardarPelicula}" th:object="${pelicula}" method="post">
         <input type="hidden" name="nombreUsuario" th:value="${nombreUsuario}">
 
         <label>Nombre:</label>
