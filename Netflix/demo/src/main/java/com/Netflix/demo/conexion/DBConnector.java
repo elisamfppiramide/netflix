@@ -14,8 +14,8 @@ public class DBConnector {
         if(connection == null) {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:mysql://basededatossql.cpwiwio6mhev.us-east-1.rds.amazonaws.com/Netflix",
-                        "admin", "cachorritos11");
+                        "jdbc:mysql://database-dwes.cpw4koqek8qf.us-east-1.rds.amazonaws.com/netflix",
+                        "admin", "Cachorritos11");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

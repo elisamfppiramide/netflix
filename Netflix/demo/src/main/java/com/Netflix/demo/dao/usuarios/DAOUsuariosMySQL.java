@@ -42,12 +42,12 @@ public class DAOUsuariosMySQL implements DAOUsuarios{
     }
 
     @Override
-    public void actualizarUsuario(Integer id, String nombreUsuario) {
-        String query = "update usuario set nombreUsuario = ? where id_usuario = ?";
+    public void actualizarUsuario(String nombreUsuario) {
+        String query = "update usuario set nombreUsuario = ? where nombreUsuario = ?";
         try{
             PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
             ps.setString(1, nombreUsuario);
-            ps.setInt(2, id);
+            ps.setString(2, nombreUsuario);
             ps.executeUpdate();
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -55,11 +55,11 @@ public class DAOUsuariosMySQL implements DAOUsuarios{
     }
 
     @Override
-    public void eliminarUsuario(Integer id) {
-        String query = "delete from usuario where id_usuario = (?)";
+    public void eliminarUsuario(String nombreUsuario) {
+        String query = "delete from usuario where nombreUsuario = ?";
         try{
             PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
-            ps.setInt(1, id);
+            ps.setString(1, nombreUsuario);
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
