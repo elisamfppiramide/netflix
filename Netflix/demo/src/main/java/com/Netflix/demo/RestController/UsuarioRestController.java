@@ -17,18 +17,18 @@ public class UsuarioRestController {
     }
 
     @PostMapping("/api/usuarios")
-    public void insertarUsuario(@RequestBody  Usuario usuario){
+    public void insertarUsuario(@RequestBody Usuario usuario){
         DAOFactory daoFactory = DAOFactory.getInstance();
         daoFactory.getDaoUsuarios().insertarUsuario(usuario);
     }
 
-    @PutMapping("/api/usuarios/:nombreUsuario")
-    public void actualizarUsuario(@PathVariable String nombreUsuario){
+    @PutMapping("/api/usuarios/{nombreUsuario}")
+    public void actualizarUsuario(@PathVariable String nombreUsuario, @RequestBody Usuario usuario){
         DAOFactory daoFactory = DAOFactory.getInstance();
-        daoFactory.getDaoUsuarios().actualizarUsuario(nombreUsuario);
+        daoFactory.getDaoUsuarios().actualizarUsuario(nombreUsuario, usuario);
     }
 
-    @DeleteMapping("/api/usuarios/:nombreUsuario")
+    @DeleteMapping("/api/usuarios/{nombreUsuario}")
     public void eliminarUsuario(@PathVariable String nombreUsuario){
         DAOFactory daoFactory = DAOFactory.getInstance();
         daoFactory.getDaoUsuarios().eliminarUsuario(nombreUsuario);

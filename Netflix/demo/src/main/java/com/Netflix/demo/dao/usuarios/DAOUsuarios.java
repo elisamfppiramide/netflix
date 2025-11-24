@@ -8,7 +8,7 @@ public interface DAOUsuarios {
 
     List<Usuario> getUsuarios();
     void insertarUsuario(Usuario usuario);
-    void actualizarUsuario(String nombreUsuario);
+    void actualizarUsuario(String nombreUsuario, Usuario nuevoUsuario);
     void eliminarUsuario(String nombreUsuario);
 
 }

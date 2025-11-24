@@ -42,11 +42,11 @@ public class DAOUsuariosMySQL implements DAOUsuarios{
     }
 
     @Override
-    public void actualizarUsuario(String nombreUsuario) {
+    public void actualizarUsuario(String nombreUsuario, Usuario nuevoUsuario) {
         String query = "update usuario set nombreUsuario = ? where nombreUsuario = ?";
         try{
             PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
-            ps.setString(1, nombreUsuario);
+            ps.setString(1, nuevoUsuario.getNombreUsuario());
             ps.setString(2, nombreUsuario);
             ps.executeUpdate();
         }catch (SQLException e){
